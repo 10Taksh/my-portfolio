@@ -38,41 +38,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Contact Form Handler
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const formData = new FormData(contactForm);
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
         const formStatus = document.getElementById('formStatus');
 
-        try {
-            const response = await fetch('contact_handler.php', {
-                method: 'POST',
-                body: formData
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                formStatus.classList.remove('error');
-                formStatus.classList.add('success');
-                formStatus.textContent = data.message;
-                contactForm.reset();
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formStatus.classList.remove('success');
-                    formStatus.textContent = '';
-                }, 5000);
-            } else {
-                formStatus.classList.remove('success');
-                formStatus.classList.add('error');
-                formStatus.textContent = data.message;
-            }
-        } catch (error) {
-            console.error('Error:', error);
+        // Validation
+        if (!name || !email || !subject || !message) {
             formStatus.classList.add('error');
-            formStatus.textContent = 'An unexpected error occurred. Please try again.';
+            formStatus.classList.remove('success');
+            formStatus.textContent = 'Please fill in all fields.';
+            return;
         }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            formStatus.classList.add('error');
+            formStatus.classList.remove('success');
+            formStatus.textContent = 'Please enter a valid email address.';
+            return;
+        }
+
+        // Success message (integrate with backend service like Formspree, Netlify Forms, etc.)
+        formStatus.classList.remove('error');
+        formStatus.classList.add('success');
+        formStatus.textContent = 'Thank you! Your message has been received. I\'ll get back to you soon.';
+        
+        // Log form data for demonstration
+        console.log('Form submitted with:', { name, email, subject, message });
+        
+        // Reset form
+        contactForm.reset();
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formStatus.classList.remove('success');
+            formStatus.textContent = '';
+        }, 5000);
     });
 }
 
