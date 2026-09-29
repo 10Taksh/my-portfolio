@@ -62,10 +62,9 @@
                         </div>
                     </div>
 
-                    <!-- Messages are sent with Formspree. After creating a form at formspree.io,
-                         add action="https://formspree.io/f/YOUR_FORM_ID" to this tag.
-                         Until then, the form opens the visitor's email app instead. -->
-                    <form id="contactForm" class="contact-form" method="POST">
+                    <!-- Messages are sent with Formspree (formspree.io). Without an action,
+                         the form falls back to opening the visitor's email app. -->
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/mzezyapd" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required>
