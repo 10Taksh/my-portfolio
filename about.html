@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | My Portfolio</title>
+    <title>Taksh Prajapati | About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="index.html" class="logo">Portfolio</a>
-                <button class="menu-toggle" id="menuToggle">
+                <a href="index.html" class="logo">Taksh Prajapati</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
                     <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
@@ -39,19 +39,20 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2>Who I Am</h2>
-                        <p>I'm a passionate full-stack developer with over 5 years of experience in building web applications. I specialize in creating clean, efficient code and intuitive user interfaces.</p>
-                        <p>My journey in web development started with a curiosity about how websites work. Over the years, I've honed my skills in various technologies and frameworks, always focusing on delivering quality solutions that meet client needs.</p>
-                        
+                        <p>I'm a software developer based in Regina, Saskatchewan. I completed my Diploma in Computer Science at the University of Regina in August 2026, and I build and deploy full-stack web applications with Python (FastAPI, Flask), JavaScript and SQL.</p>
+                        <p>I've shipped two live projects on Oracle Cloud: Stockboard, an AI-powered invoice parser that uses the Google Gemini API, and Visual Schedule Builder, a staff-scheduling app backed by 59 automated tests.</p>
+                        <p>I also work as a Supervisor at Shoppers Drug Mart, a role I was promoted into in under a year. Leading shift teams, training new hires and handling customer concerns has built the leadership and problem-solving I bring to every project.</p>
+
                         <h3>My Approach</h3>
                         <ul class="approach-list">
-                            <li>Understanding client requirements deeply</li>
-                            <li>Writing clean and maintainable code</li>
-                            <li>Following best practices and design patterns</li>
-                            <li>Continuous learning and improvement</li>
+                            <li>Validating data on the server so bad input never gets saved</li>
+                            <li>Backing core logic with automated tests</li>
+                            <li>Keeping important calculations deterministic, not guessed by an AI</li>
+                            <li>Deploying to real servers with repeatable setup scripts</li>
                         </ul>
                     </div>
                     <div class="about-image">
-                        <img src="images\myPic.jpg" alt="Taksh Photo">
+                        <img src="images/myPic.jpg" alt="Portrait of Taksh Prajapati" width="409" height="525">
                     </div>
                 </div>
             </div>
@@ -59,27 +60,27 @@
 
         <section class="timeline">
             <div class="container">
-                <h2>Experience</h2>
+                <h2>Experience &amp; Education</h2>
                 <div class="timeline-items">
                     <div class="timeline-item">
-                        <div class="timeline-date">2023 - Present</div>
+                        <div class="timeline-date">April 2026 – Present</div>
                         <div class="timeline-content">
-                            <h4>Senior Developer</h4>
-                            <p>Led development of multiple full-stack applications, mentored junior developers, and implemented best practices.</p>
+                            <h4>Supervisor · Shoppers Drug Mart</h4>
+                            <p>Promoted from Cashier/Merchandiser within 11 months. I lead shift teams, train new hires on store procedures, POS and service standards, oversee cash management, and run store opening and closing.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2021 - 2023</div>
+                        <div class="timeline-date">May 2025 – April 2026</div>
                         <div class="timeline-content">
-                            <h4>Full Stack Developer</h4>
-                            <p>Developed and maintained web applications, improved performance, and collaborated with design teams.</p>
+                            <h4>Cashier / Merchandiser · Shoppers Drug Mart</h4>
+                            <p>Processed cash, debit and credit transactions accurately, helped customers with their questions, and kept displays organized and well-stocked in a fast-paced store.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2020 - 2021</div>
+                        <div class="timeline-date">Completed August 2026</div>
                         <div class="timeline-content">
-                            <h4>Junior Developer</h4>
-                            <p>Started career building responsive websites, learning best practices, and contributing to team projects.</p>
+                            <h4>Diploma in Computer Science</h4>
+                            <p>University of Regina, Regina, SK</p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>About</h4>
-                    <p>Full-stack developer passionate about creating beautiful and functional web applications.</p>
+                    <p>Software developer in Regina, SK, building and deploying full-stack web apps with Python, JavaScript and SQL.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -105,14 +106,13 @@
                 <div class="footer-section">
                     <h4>Follow Me</h4>
                     <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/10Taksh" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/taksh-prajapati-978460349" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+                <p>&copy; 2026 Taksh Prajapati. All rights reserved.</p>
             </div>
         </div>
     </footer>

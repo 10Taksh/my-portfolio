@@ -109,6 +109,8 @@ body {
     border: none;
     cursor: pointer;
     gap: 5px;
+    padding: 8px;
+    margin-right: -8px;
 }
 
 .menu-toggle span {
@@ -150,6 +152,13 @@ body {
     opacity: 0.9;
 }
 
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
 /* ================================
    Buttons
    ================================ */
@@ -185,6 +194,20 @@ body {
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: #ffffff;
+}
+
+/* White outline button for use on the gradient hero */
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 10px 28px;
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 /* ================================
@@ -232,6 +255,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
     transition: var(--transition);
 }
 
@@ -272,12 +296,19 @@ body {
     font-weight: 500;
 }
 
+.portfolio-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
 .link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
     transition: var(--transition);
 }
 
@@ -299,13 +330,16 @@ body {
     color: var(--dark-color);
 }
 
+/* Flex so a short last row sits centred instead of hugging the left */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
 }
 
 .skill-card {
+    flex: 0 1 calc((100% - 4rem) / 3);
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: #ffffff;
     padding: 2rem;
@@ -425,6 +459,7 @@ body {
 
 .about-image img {
     width: 100%;
+    height: auto;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -460,6 +495,7 @@ body {
 }
 
 .timeline-item {
+    position: relative;
     margin-bottom: 3rem;
     width: 48%;
 }
@@ -472,16 +508,23 @@ body {
     margin-left: 52%;
 }
 
-.timeline-item:nth-child(odd)::after {
+/* Dot on the centre line, level with each item's date. Items are 48% wide,
+   so the line sits 50/48 of an item's width from an odd item's left edge
+   and 2/48 before an even item's. 11px = half the dot including its border. */
+.timeline-item::after {
     content: '';
     position: absolute;
-    left: calc(50% - 8px);
-    top: 30px;
+    left: calc(100% * 50 / 48 - 11px);
+    top: 2px;
     width: 16px;
     height: 16px;
     background-color: var(--primary-color);
     border-radius: 50%;
     border: 3px solid #ffffff;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: calc(100% * -2 / 48 - 11px);
 }
 
 .timeline-date {
@@ -620,6 +663,11 @@ body {
     width: 100%;
 }
 
+.contact-form button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
 #formStatus {
     margin-top: 1rem;
     padding: 1rem;
@@ -627,15 +675,22 @@ body {
     display: none;
 }
 
+/* Darker text shades than the base colours so messages stay readable */
 #formStatus.success {
     background-color: #d1fae5;
-    color: var(--success-color);
+    color: #047857;
     display: block;
 }
 
 #formStatus.error {
     background-color: #fee2e2;
-    color: var(--danger-color);
+    color: #b91c1c;
+    display: block;
+}
+
+#formStatus.info {
+    background-color: #e0e7ff;
+    color: #4338ca;
     display: block;
 }
 
@@ -759,8 +814,12 @@ body {
         margin-left: 0 !important;
     }
 
-    .timeline-item:nth-child(odd)::after {
+    .timeline-item::after {
         display: none;
+    }
+
+    .skill-card {
+        flex-basis: calc((100% - 2rem) / 2);
     }
 
     .portfolio h2,
@@ -783,8 +842,8 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .skill-card {
+        flex-basis: 100%;
     }
 
     .footer-content {

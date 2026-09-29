@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | My Portfolio</title>
+    <title>Taksh Prajapati | Software Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="index.html" class="logo">Portfolio</a>
-                <button class="menu-toggle" id="menuToggle">
+                <a href="index.html" class="logo">Taksh Prajapati</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -33,8 +33,13 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">Hi, I'm Taksh Prajapati</h1>
-                    <p class="hero-subtitle">Full Stack Developer | Creative Problem Solver</p>
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <p class="hero-subtitle">Software Developer | Python · FastAPI &amp; Flask · JavaScript · SQL · Cloud Deployment</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                        <a href="assets/Taksh_Prajapati_Resume.pdf" class="btn btn-outline" download>
+                            <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -46,49 +51,47 @@
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="https://webxloo.com/wp-content/uploads/2022/10/php-mysql-pic.png" alt="Project 1">
+                            <img src="images/projects/schedule-builder.webp" alt="Screenshot of Visual Schedule Builder showing a store's staff schedule on a timeline" width="1200" height="750" loading="lazy">
                         </div>
                         <div class="portfolio-content">
-                            <h3>Project One</h3>
-                            <p>A web application built with PHP and MySQL for managing user data efficiently.</p>
+                            <h3>Visual Schedule Builder – Retail Staff Scheduling App</h3>
+                            <p>A full-stack web app for retail stores to manage employees, availability, positions and store hours, with a drag-and-drop timeline to place, move and resize shifts.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">PHP</span>
-                                <span class="tag">MySQL</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">SQLAlchemy</span>
+                                <span class="tag">PostgreSQL/SQLite</span>
                                 <span class="tag">JavaScript</span>
+                                <span class="tag">pytest</span>
+                                <span class="tag">Oracle Cloud</span>
                             </div>
-                            <a href="#" class="link">View Project →</a>
+                            <div class="portfolio-links">
+                                <a href="http://192.18.152.21/" class="link" target="_blank" rel="noopener noreferrer" aria-label="Visual Schedule Builder live demo (opens in a new tab)">Live Demo →</a>
+                                <a href="https://github.com/10Taksh/Visual-Schedual-Builder" class="link" target="_blank" rel="noopener noreferrer" aria-label="Visual Schedule Builder source code on GitHub (opens in a new tab)"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsYw-eossjK0_eA1dgfxcqxxn4VxJFKLF6mQ&s" alt="Project 2">
+                            <img src="images/projects/stockboard.webp" alt="Screenshot of the Stockboard dashboard listing products and their expiry dates" width="1200" height="750" loading="lazy">
                         </div>
                         <div class="portfolio-content">
-                            <h3>Project Two</h3>
-                            <p>An e-commerce platform with payment integration and inventory management system.</p>
+                            <h3>Stockboard – AI Invoice Inventory Tracker</h3>
+                            <p>An AI tool that uses the Google Gemini API to pull product names and expiry dates from supplier invoice PDFs, eliminating manual data entry for retail stock rotation.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">PHP</span>
-                                <span class="tag">API</span>
-                                <span class="tag">Bootstrap</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">Gemini API</span>
+                                <span class="tag">SQLite</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Caddy</span>
+                                <span class="tag">Oracle Cloud</span>
                             </div>
-                            <a href="#" class="link">View Project →</a>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="http://frontegg.com/wp-content/uploads/2022/03/rbac-1.png" alt="Project 3">
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Project Three</h3>
-                            <p>A content management system with user authentication and role-based access control.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">PHP</span>
-                                <span class="tag">CMS</span>
-                                <span class="tag">Security</span>
+                            <div class="portfolio-links">
+                                <a href="http://192.18.153.160/" class="link" target="_blank" rel="noopener noreferrer" aria-label="Stockboard live demo (opens in a new tab)">Live Demo →</a>
+                                <a href="https://github.com/10Taksh/retail-inventory-tracker" class="link" target="_blank" rel="noopener noreferrer" aria-label="Stockboard source code on GitHub (opens in a new tab)"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
                             </div>
-                            <a href="#" class="link">View Project →</a>
                         </div>
                     </div>
                 </div>
@@ -101,30 +104,53 @@
                 <h2>Skills & Technologies</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h4>Backend</h4>
+                        <h4>Languages</h4>
                         <ul>
-                            <li>PHP</li>
-                            <li>MySQL</li>
-                            <li>REST APIs</li>
-                            <li>Node.js</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h4>Frontend</h4>
-                        <ul>
+                            <li>Python</li>
+                            <li>C++</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
                             <li>HTML5</li>
                             <li>CSS3</li>
-                            <li>JavaScript</li>
-                            <li>Bootstrap</li>
                         </ul>
                     </div>
                     <div class="skill-card">
-                        <h4>Tools</h4>
+                        <h4>Frameworks &amp; Libraries</h4>
                         <ul>
-                            <li>Git</li>
-                            <li>Docker</li>
-                            <li>VS Code</li>
-                            <li>Postman</li>
+                            <li>FastAPI</li>
+                            <li>Flask</li>
+                            <li>SQLAlchemy (ORM)</li>
+                            <li>pytest (Unit Testing)</li>
+                            <li>Responsive Web Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Databases</h4>
+                        <ul>
+                            <li>SQLite</li>
+                            <li>PostgreSQL</li>
+                            <li>Relational Data Modeling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h4>AI &amp; APIs</h4>
+                        <ul>
+                            <li>Google Gemini API</li>
+                            <li>LLM Integration</li>
+                            <li>Structured Data Extraction (JSON)</li>
+                            <li>RESTful API Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Cloud &amp; DevOps</h4>
+                        <ul>
+                            <li>Oracle Cloud (OCI)</li>
+                            <li>Linux (Ubuntu)</li>
+                            <li>systemd</li>
+                            <li>Caddy</li>
+                            <li>Gunicorn</li>
+                            <li>Render</li>
+                            <li>Git &amp; GitHub</li>
                         </ul>
                     </div>
                 </div>
@@ -146,7 +172,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>About</h4>
-                    <p>Full-stack developer passionate about creating beautiful and functional web applications.</p>
+                    <p>Software developer in Regina, SK, building and deploying full-stack web apps with Python, JavaScript and SQL.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -159,14 +185,13 @@
                 <div class="footer-section">
                     <h4>Follow Me</h4>
                     <div class="social-links">
-                        <a href="https://github.com/10Taksh" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/taksh-prajapati-978460349" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/10Taksh" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/taksh-prajapati-978460349" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+                <p>&copy; 2026 Taksh Prajapati. All rights reserved.</p>
             </div>
         </div>
     </footer>

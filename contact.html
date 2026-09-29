@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | My Portfolio</title>
+    <title>Taksh Prajapati | Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="index.html" class="logo">Portfolio</a>
-                <button class="menu-toggle" id="menuToggle">
+                <a href="index.html" class="logo">Taksh Prajapati</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -21,7 +21,7 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li><a href="contact.html" class="nav-link active" aria-current="page">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -46,26 +46,26 @@
                         </div>
                         <div class="info-item">
                             <h4>Phone</h4>
-                            <p><a href="tel:+3065810437">+1 (306) 581-0437</a></p>
+                            <p><a href="tel:+13065810437">+1 (306) 581-0437</a></p>
                         </div>
                         <div class="info-item">
                             <h4>Location</h4>
                             <p>Regina, Canada</p>
                         </div>
                         <div class="social-links">
-                            <a href="https://www.linkedin.com/in/taksh-prajapati-978460349" class="social-icon" title="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/taksh-prajapati-978460349" class="social-icon" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
                             </a>
-                            <a href="https://github.com/10Taksh" class="social-icon" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="Twitter">
-                                <i class="fab fa-twitter"></i>
+                            <a href="https://github.com/10Taksh" class="social-icon" title="GitHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
 
-                    <form id="contactForm" class="contact-form">
+                    <!-- Messages are sent with Formspree. After creating a form at formspree.io,
+                         add action="https://formspree.io/f/YOUR_FORM_ID" to this tag.
+                         Until then, the form opens the visitor's email app instead. -->
+                    <form id="contactForm" class="contact-form" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -87,7 +87,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Send Message</button>
-                        <div id="formStatus"></div>
+                        <div id="formStatus" role="status" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
@@ -99,7 +99,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>About</h4>
-                    <p>Full-stack developer passionate about creating beautiful and functional web applications.</p>
+                    <p>Software developer in Regina, SK, building and deploying full-stack web apps with Python, JavaScript and SQL.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -112,14 +112,13 @@
                 <div class="footer-section">
                     <h4>Follow Me</h4>
                     <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/10Taksh" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/taksh-prajapati-978460349" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+                <p>&copy; 2026 Taksh Prajapati. All rights reserved.</p>
             </div>
         </div>
     </footer>

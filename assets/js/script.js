@@ -2,22 +2,28 @@
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
+function setMenuOpen(open) {
+    navMenu.classList.toggle('active', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+
 menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+    setMenuOpen(!navMenu.classList.contains('active'));
 });
 
 // Close mobile menu when a link is clicked
 const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        setMenuOpen(false);
     });
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (event) => {
     if (!event.target.closest('.navbar')) {
-        navMenu.classList.remove('active');
+        setMenuOpen(false);
     }
 });
 
@@ -36,50 +42,72 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Contact Form Handler
+// Sends through Formspree once the form has an action="https://formspree.io/f/..."
+// attribute. Until then it opens the visitor's email app with the message filled in,
+// so nobody is ever told a message was sent when it wasn't.
+const CONTACT_EMAIL = '10takshprajapati01@gmail.com';
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const formStatus = document.getElementById('formStatus');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    const showStatus = (type, text) => {
+        formStatus.className = type;
+        formStatus.textContent = text;
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const subject = document.getElementById('subject').value.trim();
         const message = document.getElementById('message').value.trim();
-        const formStatus = document.getElementById('formStatus');
 
         // Validation
         if (!name || !email || !subject || !message) {
-            formStatus.classList.add('error');
-            formStatus.classList.remove('success');
-            formStatus.textContent = 'Please fill in all fields.';
+            showStatus('error', 'Please fill in all fields.');
             return;
         }
 
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            formStatus.classList.add('error');
-            formStatus.classList.remove('success');
-            formStatus.textContent = 'Please enter a valid email address.';
+            showStatus('error', 'Please enter a valid email address.');
             return;
         }
 
-        // Success message (integrate with backend service like Formspree, Netlify Forms, etc.)
-        formStatus.classList.remove('error');
-        formStatus.classList.add('success');
-        formStatus.textContent = 'Thank you! Your message has been received. I\'ll get back to you soon.';
-        
-        // Log form data for demonstration
-        console.log('Form submitted with:', { name, email, subject, message });
-        
-        // Reset form
-        contactForm.reset();
+        const endpoint = contactForm.getAttribute('action');
 
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            formStatus.classList.remove('success');
-            formStatus.textContent = '';
-        }, 5000);
+        // No Formspree endpoint yet: hand the message to the visitor's email app
+        if (!endpoint) {
+            const body = `${message}\n\nFrom: ${name} <${email}>`;
+            window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            showStatus('info', `Your email app should open with this message ready to send. If it doesn't, email me at ${CONTACT_EMAIL}.`);
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' }
+            });
+            if (!response.ok) {
+                throw new Error(`Formspree responded with ${response.status}`);
+            }
+            showStatus('success', 'Thank you! Your message was sent. I\'ll get back to you soon.');
+            contactForm.reset();
+        } catch (error) {
+            console.error(error);
+            showStatus('error', `Sorry, your message couldn't be sent. Please email me directly at ${CONTACT_EMAIL}.`);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        }
     });
 }
 
@@ -138,7 +166,7 @@ function updateActiveNavLink() {
 // Add keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        navMenu.classList.remove('active');
+        setMenuOpen(false);
     }
 });
 
